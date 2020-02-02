@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+float func(float x) {
+ float y;
+ y=(sqrt(x*x+1)-1)/2;
+ return y;
+}
+
+int main() {
+ float x;
+ printf("x=");
+ scanf("%f", &x);
+ printf("f(x)=%f", func(x)+x);
+}
