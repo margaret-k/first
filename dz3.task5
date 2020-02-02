@@ -1,0 +1,19 @@
+#include <stdio.h>
+unsigned short func(unsigned char x, unsigned char y){
+ unsigned char a = x;
+ unsigned char b = y;
+ if ((a!=0) && (b!=0)) {
+  return a*b;}
+ else {
+  return 0;}
+}
+ 
+int main() {
+ unsigned char x; 
+ unsigned char y;
+ printf("x=");
+ scanf("%u", &x);
+ printf("y=");
+ scanf("%u", &y);
+ printf("x*y=%u", func(x,y));
+}
