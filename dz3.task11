@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main() {
+ float r;
+ printf("r=");
+ scanf("%f", &r);
+ float x,y,z;
+ printf("(x,y,z)=");
+ scanf("%f",&x,&y,&z);
+ if (x*x+y*y+z*z>r*r) {
+  printf("Не належить");}
+ else {
+  printf("Належить");}
+}
