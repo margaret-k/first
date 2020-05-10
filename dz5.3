@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <iostream>
+#include <cstdint>
+
+using namespace std;
+
+//Write bytes of given unsigned int
+void writeBytes(unsigned int m){
+	for (int i = sizeof(m) * 8 - 1; i >= 0; i--){
+		if ((m & (1 << i)) == 0)
+			cout << 0;
+		else cout << 1; 
+	}
+}
+
+int main(){
+	unsigned int m;
+	cin >> m;
+	unsigned int inv = ~m; 
+	cout << "10 : " << inv << endl;
+	cout << "2  : ";
+	writeBytes(inv);
+	cout << endl;
+}
