@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+
+using namespace std;
+
+//if t > 10 (system)
+//letters 'A' 'B' ... correspond to digits '10' '11' ...
+//for example m = 26, t = 16, then write 1A
+void writeWithAnotherSys(unsigned int m, unsigned int t){
+    char ch[32];
+    int i = 0;
+    while (m > 0) {
+        unsigned int k = m % t;
+        if (k < 10)
+            ch[i] = '0' + k;
+        else ch[i] = 'A' + (k % 10);
+        i++;
+        m /= t;
+    }
+    for (int j = i - 1; j >= 0; j--)
+        cout << ch[j];
+    cout << endl;
+}
+
+int main(){
+	unsigned int m, a, b;
+	cin >> m >> a >> b;
+
+    unsigned int ba = (m & (1 << a)) >> a, bb = (m & (1 << b)) >> b;
+
+    if (ba == 0)
+        m = m & (~(1 << b));
+    else m = m | (1 << b);
+
+    if (bb == 0)
+        m = m & (~(1 << a));
+    else m = m | (1 << a);
+
+    cout << m << endl;
+    writeWithAnotherSys(m, 16);
+}
