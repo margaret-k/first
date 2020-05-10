@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string f1(string s1, string s2, int k){
+    string s = "";
+    for (int i = 0; i < k; i++)
+        s += s1[i];
+    for (int i = 0; i < s2.length(); i++)
+        s += s2[i];
+    for (int i = k; i < s1.length(); i++)
+        s += s1[i];
+    return s;
+}
+
+void f2(string *s1, string s2, int k){
+    *s1 = f1(*s1, s2, k);
+}
+
+int main(){
+    string s1, s2;
+    int k;
+    cin >> s1 >> s2 >> k;
+    cout << "f1 " << f1(s1, s2, k) << endl;
+    cout << "state " << s1 << ' ' << s2 << endl;
+    f2(&s1, s2, k);
+    cout << "state " << s1 << ' ' << s2 << endl;
+}
